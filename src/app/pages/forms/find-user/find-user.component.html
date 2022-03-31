@@ -1,0 +1,52 @@
+<nb-card>
+  <nb-card-header>Add User</nb-card-header>
+  <nb-card-body>
+    <div class="container">
+      <p *ngFor="let alert of alerts">
+        <ngb-alert>
+          <strong> Warning! </strong> {{alert}}
+        </ngb-alert>
+      </p>
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlFile1">upload File</label>
+          <input type="file" accept="image/*" name="creativeImage" class="form-control" (change)="onFileChanged($event)"
+            id="creativeImage">
+        </div>
+        <button class="btn btn-primary" (click)="postData()">Submit</button>
+      </form>
+    </div>
+
+
+  </nb-card-body>
+</nb-card>
+<!-- http://localhost:5000/static/ -->
+
+
+<nb-card>
+  <nb-card-body>
+    <div class="container">
+      <div class="row" *ngFor="let user of data">
+        <div class="col-md-4">
+          <img src="http://localhost:5000/static/{{user.image_path}}" height="200" width="250" alt="">
+        </div>
+        <div class="col-md-8 mt-5">
+          <div class="row">
+            <div class="col-md-6">
+              Name : {{user.name.String}}
+            </div>
+            <div class="col-md-6">
+              Roll : {{user.mobile_no.Int32}}
+            </div>
+            <div class="col-md-6">
+              College : {{user.college_name.String}}
+            </div>
+            <div class="col-md-6">
+              Address : {{user.address.String}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
